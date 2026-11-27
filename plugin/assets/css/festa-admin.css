@@ -1,0 +1,647 @@
+/* Festa dos Amigos 2026 — telas de gerenciamento (wp-admin e portal externo) */
+
+.festa-admin .festa-page-hint {
+	margin: 6px 0 0;
+	color: #50575e;
+}
+
+.festa-admin .festa-page-hint code {
+	background: #f0f0f1;
+	padding: 2px 6px;
+	border-radius: 4px;
+}
+
+.festa-dot {
+	display: inline-block;
+	width: 9px;
+	height: 9px;
+	border-radius: 50%;
+	margin-right: 4px;
+	vertical-align: 1px;
+}
+
+.festa-dot.is-open { background: #2e9e7c; }
+.festa-dot.is-closed { background: #c0392b; }
+
+.festa-open-state {
+	display: inline-block;
+	padding: 8px 14px;
+	border-radius: 8px;
+	font-weight: 600;
+}
+
+.festa-open-state.is-open { background: #e3f5ee; color: #1d6b53; }
+.festa-open-state.is-closed { background: #fdecea; color: #a1281c; }
+
+.festa-clear-filters {
+	margin-left: 8px !important;
+	line-height: 30px;
+}
+
+.festa-ok {
+	color: #1d6b53;
+	font-weight: 600;
+}
+
+.festa-pending {
+	color: #b32d2e;
+	font-weight: 600;
+}
+
+.festa-warn {
+	padding: 8px 12px;
+	background: #fff4d0;
+	border-left: 4px solid #d9a100;
+	border-radius: 6px;
+	color: #5c4400;
+}
+
+/* ---- Resumo -------------------------------------------------------------- */
+
+.festa-stats {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin: 14px 0 4px;
+}
+
+.festa-stat {
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-left: 4px solid #0b5d6b;
+	border-radius: 10px;
+	padding: 10px 18px;
+	font-size: 13px;
+	color: #50575e;
+	min-width: 140px;
+}
+
+.festa-stat--analise { border-left-color: #d9a100; }
+.festa-stat--deferido { border-left-color: #2f7fc1; }
+.festa-stat--comprovantes { border-left-color: #7b5cc4; }
+.festa-stat--ok { border-left-color: #2e9e7c; }
+
+.festa-stat-num {
+	display: block;
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 1.2;
+	color: #0b5d6b;
+}
+
+/* ---- Tabela ---------------------------------------------------------------- */
+
+.festa-table .festa-num {
+	font-weight: 700;
+	white-space: nowrap;
+}
+
+.festa-sub-text {
+	color: #646970;
+	font-size: 12px;
+}
+
+/* A busca aceita protocolo, CPF, nome, grupo e e-mail: o campo precisa caber a dica. */
+.festa-admin .search-box input[type='search'] {
+	width: 330px;
+	max-width: 100%;
+}
+
+/* ---- Badges ------------------------------------------------------------------ */
+
+.festa-admin .festa-badge {
+	display: inline-block;
+	padding: 3px 11px;
+	border-radius: 999px;
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 1.6;
+	white-space: nowrap;
+}
+
+.festa-badge--rascunho { background: #eef1f2; color: #50575e; }
+.festa-badge--aguardando_analise { background: #fff4d0; color: #7a5a00; }
+.festa-badge--deferido { background: #ddebf7; color: #1c5d8f; }
+.festa-badge--aguardando_comprovantes { background: #ece6f8; color: #56399e; }
+.festa-badge--concluido { background: #dcf3e9; color: #1d6b53; }
+
+/* ---- Detalhe ----------------------------------------------------------------- */
+
+.festa-detail-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 320px;
+	gap: 20px;
+	align-items: start;
+	margin-top: 12px;
+	max-width: 1280px;
+}
+
+@media (max-width: 1100px) {
+	.festa-detail-layout {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+.festa-detail-card {
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 12px;
+	overflow: hidden;
+}
+
+.festa-detail-head {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	flex-wrap: wrap;
+	padding: 14px 20px;
+	background: #0b5d6b;
+	color: #eef6f6;
+	border-bottom: 4px solid #ffc233;
+}
+
+.festa-detail-num {
+	font-size: 20px;
+	font-weight: 700;
+	margin-right: 4px;
+}
+
+.festa-detail-date {
+	font-size: 13px;
+	opacity: 0.9;
+	margin-left: auto;
+}
+
+.festa-next-step {
+	margin: 14px 20px 0;
+	padding: 10px 14px;
+	background: #eef6f6;
+	border-left: 4px solid #0b5d6b;
+	border-radius: 6px;
+}
+
+.festa-detail-section {
+	margin: 0;
+	padding: 18px 20px 8px;
+	font-size: 13px;
+	text-transform: uppercase;
+	letter-spacing: 0.6px;
+	color: #0b5d6b;
+}
+
+.festa-detail-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.festa-detail-table th,
+.festa-detail-table td {
+	padding: 11px 20px;
+	border-bottom: 1px solid #f0f0f1;
+	text-align: left;
+	vertical-align: top;
+	font-size: 13.5px;
+}
+
+.festa-detail-table th {
+	width: 300px;
+	color: #0b5d6b;
+	background: #fbf8f0;
+	font-weight: 600;
+}
+
+.festa-missing {
+	color: #b32d2e;
+	font-weight: 600;
+}
+
+em.festa-missing {
+	font-weight: 400;
+}
+
+.festa-tenda {
+	display: inline-block;
+	padding: 2px 12px;
+	border-radius: 8px;
+	background: #0b5d6b;
+	color: #fff;
+	font-size: 15px;
+}
+
+/* Documento */
+
+.festa-doc {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.festa-doc-thumb {
+	display: block;
+	width: 64px;
+	height: 64px;
+	object-fit: cover;
+	border-radius: 8px;
+	border: 1px solid #dcdcde;
+	background: #f6f7f7;
+}
+
+.festa-doc-ico {
+	display: grid;
+	place-content: center;
+	width: 64px;
+	height: 64px;
+	border-radius: 8px;
+	background: #eef1f2;
+	color: #50575e;
+	font-weight: 700;
+	flex: 0 0 auto;
+}
+
+.festa-doc-ico.is-pdf {
+	background: #fdecea;
+	color: #b32d2e;
+}
+
+.festa-doc-meta {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	min-width: 0;
+	word-break: break-word;
+}
+
+.festa-doc-meta span {
+	color: #646970;
+	font-size: 12.5px;
+}
+
+.festa-replace {
+	margin: 8px 0 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px 10px;
+	align-items: center;
+}
+
+/* Coluna lateral */
+
+.festa-box {
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 12px;
+	padding: 14px 16px;
+	margin-bottom: 16px;
+}
+
+.festa-box h2 {
+	margin: 0 0 10px;
+	font-size: 14px;
+}
+
+.festa-actions-box {
+	border-color: #0b5d6b;
+	border-top: 4px solid #ffc233;
+}
+
+.festa-actions-box hr {
+	margin: 14px 0;
+	border: 0;
+	border-top: 1px solid #e0e0e2;
+}
+
+/* Rótulo em cima, campo embaixo. */
+.festa-stack label {
+	display: block;
+	margin: 8px 0 4px;
+	font-weight: 600;
+}
+
+.festa-stack input[type='file'] {
+	display: block;
+	max-width: 100%;
+	margin-bottom: 4px;
+}
+
+.festa-history {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	max-height: 360px;
+	overflow: auto;
+}
+
+.festa-history li {
+	margin: 0;
+	padding: 8px 0;
+	border-bottom: 1px solid #f0f0f1;
+	font-size: 12.5px;
+}
+
+.festa-history li:last-child {
+	border-bottom: 0;
+}
+
+.festa-history-when {
+	display: block;
+	color: #8c8f94;
+	font-size: 11.5px;
+}
+
+.festa-admin .festa-delete {
+	color: #b32d2e;
+	border-color: #b32d2e;
+}
+
+.festa-admin .festa-delete:hover {
+	background: #b32d2e;
+	color: #fff;
+	border-color: #b32d2e;
+}
+
+/* ---- Busca de colchões (Defesa Civil) ------------------------------------------ */
+
+.festa-busca,
+.festa-confirmar,
+.festa-result {
+	max-width: 640px;
+}
+
+.festa-busca {
+	margin-top: 16px;
+}
+
+.festa-busca label {
+	display: block;
+	margin-bottom: 6px;
+}
+
+.festa-result {
+	margin-bottom: 16px;
+}
+
+.festa-result th {
+	width: 200px;
+	font-weight: 600;
+}
+
+/* ---- Larguras de coluna (classes no lugar de style="…": o portal externo
+        proíbe estilos embutidos no HTML) ------------------------------------- */
+
+/* A largura declarada inclui o espaçamento interno da célula. Sem isto o
+   wp-admin soma 20px a cada coluna e, em telas de notebook, não sobra
+   espaço para a coluna do nome (ela encolhia para uma letra por linha). */
+.festa-table th,
+.festa-table td {
+	box-sizing: border-box;
+}
+
+.festa-admin .wp-list-table.festa-table {
+	min-width: 1100px;
+}
+
+.festa-w74 { width: 74px; }
+.festa-w80 { width: 80px; }
+.festa-w100 { width: 100px; }
+.festa-w125 { width: 125px; }
+.festa-w130 { width: 130px; }
+.festa-w150 { width: 150px; }
+.festa-w175 { width: 175px; }
+.festa-w250 { width: 250px; }
+.festa-w330 { width: 330px; }
+
+/* ---- Portal externo (tela de usuários no wp-admin) e senhas provisórias --------- */
+
+.festa-portal-admin .festa-box {
+	max-width: 1100px;
+	margin-top: 16px;
+}
+
+.festa-portal-admin .festa-box h2 {
+	font-size: 15px;
+}
+
+.festa-flash {
+	border-left-color: #d9a100 !important;
+	background: #fffbea !important;
+}
+
+.festa-flash-cred {
+	font-size: 15px;
+}
+
+.festa-flash-pass {
+	font-size: 18px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	padding: 4px 10px;
+	background: #fff;
+	border: 1px dashed #d9a100;
+	border-radius: 6px;
+	user-select: all;
+}
+
+/* Uma permissão por linha (o wp-admin deixa os rótulos de fieldset em linha). */
+.festa-admin .form-table td fieldset.festa-perms label {
+	display: block;
+	margin: 0 0 6px !important;
+}
+
+.festa-pu-state {
+	display: inline-block;
+	padding: 2px 10px;
+	border-radius: 999px;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.festa-pu-state--ok { background: #dcf3e9; color: #1d6b53; }
+.festa-pu-state--new { background: #ddebf7; color: #1c5d8f; }
+.festa-pu-state--lock { background: #fde6d8; color: #a0461a; }
+.festa-pu-state--off { background: #f1f1f2; color: #6b6b6b; }
+
+.festa-pu-actions form {
+	display: none;
+}
+
+.festa-pu-actions .button {
+	margin: 0 2px 4px 0;
+}
+
+.festa-portal-sec {
+	margin: 0 0 10px 18px;
+	list-style: disc;
+}
+
+.festa-portal-sec li {
+	margin-bottom: 5px;
+}
+
+/* ---- Lista de espera, indeferimento e vagas -------------------------------- */
+
+.festa-badge--lista_espera { background: #fde9dc; color: #8a3a12; }
+.festa-badge--indeferido { background: #fbe4e2; color: #9b2c22; }
+
+.festa-stat--fila { border-left-color: #e07a3f; }
+.festa-stat--indeferido { border-left-color: #c0392b; }
+.festa-stat--vagas { border-left-color: #0b5d6b; }
+
+.festa-fila-box {
+	margin: 14px 0 4px;
+	max-width: 1280px;
+	border-left: 4px solid #e07a3f;
+}
+
+.festa-fila-box p { margin: 6px 0; }
+
+.festa-fila-acao {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 10px;
+	margin: 8px 0 2px;
+}
+
+.festa-vagas-line {
+	margin: 6px 0;
+	font-weight: 600;
+	color: #0b5d6b;
+}
+
+.festa-vagas-resumo {
+	margin: 6px 0 0;
+	font-weight: 600;
+}
+
+.festa-indeferir {
+	margin-top: 14px;
+	padding-top: 12px;
+	border-top: 1px solid #dcdcde;
+}
+
+.festa-indeferir summary {
+	cursor: pointer;
+	font-weight: 600;
+	color: #9b2c22;
+}
+
+.festa-indeferir form { margin-top: 10px; }
+
+.festa-admin .button.festa-button-danger {
+	border-color: #b32d2e;
+	color: #b32d2e;
+}
+
+.festa-admin .button.festa-button-danger:hover,
+.festa-admin .button.festa-button-danger:focus {
+	border-color: #8a2424;
+	background: #fcf0f1;
+	color: #8a2424;
+}
+
+.festa-justificativa {
+	margin: 8px 0 14px;
+	padding: 10px 12px;
+	border-left: 4px solid #c0392b;
+	border-radius: 0 6px 6px 0;
+	background: #fdf0ee;
+}
+
+.festa-justificativa p {
+	margin: 4px 0 0;
+	overflow-wrap: anywhere;
+}
+
+/* ---- Dashboard -------------------------------------------------------------- */
+
+.festa-dash-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+	gap: 12px;
+	margin: 16px 0 20px;
+	max-width: 1280px;
+}
+
+.festa-dash-card {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	padding: 14px 16px;
+	border: 1px solid #dcdcde;
+	border-top: 4px solid #8c8f94;
+	border-radius: 10px;
+	background: #fff;
+}
+
+.festa-dash-label {
+	min-height: 2.6em; /* rótulos de uma ou duas linhas: os números ficam alinhados */
+	font-size: 13px;
+	line-height: 1.3;
+	color: #50575e;
+}
+
+.festa-dash-num {
+	font-size: 30px;
+	font-weight: 700;
+	line-height: 1.15;
+	color: #1d2327;
+}
+
+.festa-dash-card a {
+	text-decoration: none;
+}
+
+.festa-dash-card a:hover .festa-dash-num,
+.festa-dash-card a:focus .festa-dash-num {
+	text-decoration: underline;
+}
+
+.festa-dash-sub {
+	font-size: 12px;
+	color: #646970;
+}
+
+.festa-dash-card--total { border-top-color: #1d2327; }
+.festa-dash-card--rascunho { border-top-color: #a7aaad; }
+.festa-dash-card--aguardando_analise { border-top-color: #d9a100; }
+.festa-dash-card--lista_espera { border-top-color: #e07a3f; }
+.festa-dash-card--deferido { border-top-color: #2f7fc1; }
+.festa-dash-card--aguardando_comprovantes { border-top-color: #7b5cc4; }
+.festa-dash-card--concluido { border-top-color: #2e9e7c; }
+.festa-dash-card--indeferido { border-top-color: #c0392b; }
+.festa-dash-card--vagas { border-top-color: #0b5d6b; background: #f2f8f8; }
+
+.festa-dash-chart {
+	max-width: 1280px;
+}
+
+.festa-dash-svg {
+	display: block;
+	width: 100%;
+	height: auto;
+	margin: 6px 0 10px;
+}
+
+.festa-dash-grid { stroke: #ececec; stroke-width: 1; }
+.festa-dash-base { stroke: #c3c4c7; stroke-width: 1; }
+.festa-dash-tick { fill: #646970; font-size: 12px; }
+.festa-dash-valor { fill: #1d2327; font-size: 12px; font-weight: 600; }
+.festa-dash-bar { fill: #0b5d6b; }
+.festa-dash-hit { fill: transparent; }
+.festa-dash-dia:hover .festa-dash-hit { fill: rgba(11, 93, 107, 0.06); }
+.festa-dash-dia:hover .festa-dash-bar { fill: #084852; }
+
+.festa-dash-tabela summary {
+	cursor: pointer;
+	font-weight: 600;
+}
+
+.festa-dash-tabela table {
+	max-width: 420px;
+	margin-top: 8px;
+}
+
+@media (forced-colors: active) {
+	.festa-dash-bar { fill: CanvasText; }
+	.festa-dash-grid, .festa-dash-base { stroke: GrayText; }
+}

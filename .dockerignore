@@ -1,0 +1,9 @@
+# Só o que a imagem usa: Dockerfile, docker/ e plugin/.
+.git
+.env
+.env.*
+backups
+tests
+docker-compose*.yml
+/README.md
+**/__pycache__

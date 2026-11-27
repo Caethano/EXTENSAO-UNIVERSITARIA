@@ -1,0 +1,725 @@
+/* =========================================================================
+   Festa dos Amigos 2026 — Portal externo de gestão
+   Página independente do tema e do wp-admin. As telas são as mesmas do
+   painel, então este arquivo também dá aparência às classes que no wp-admin
+   vêm do WordPress (.button, .notice, .wp-list-table, .form-table…).
+   Só recursos do próprio site: nenhuma fonte ou imagem externa.
+   ========================================================================= */
+
+.festa-portal {
+	--p-teal: #0b5d6b;
+	--p-teal-2: #084852;
+	--p-sun: #ffc233;
+	--p-bg: #f3f6f6;
+	--p-ink: #1f2d33;
+	--p-muted: #5d6b73;
+	--p-line: #d6dfe1;
+	--p-red: #b32d2e;
+
+	margin: 0;
+	min-height: 100vh;
+	background: var(--p-bg);
+	color: var(--p-ink);
+	font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+.festa-portal *,
+.festa-portal *::before,
+.festa-portal *::after {
+	box-sizing: border-box;
+}
+
+.festa-portal [hidden] {
+	display: none !important;
+}
+
+.festa-portal a {
+	color: var(--p-teal);
+}
+
+.festa-portal a:hover {
+	color: var(--p-teal-2);
+}
+
+.festa-portal code {
+	padding: 1px 5px;
+	border-radius: 4px;
+	background: #e9eeee;
+	font-size: 0.92em;
+}
+
+.festa-portal h1,
+.festa-portal h2 {
+	color: var(--p-ink);
+	line-height: 1.25;
+}
+
+.festa-portal .screen-reader-text {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* ---- Topo ------------------------------------------------------------------ */
+
+.festa-portal-top {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 10px 22px;
+	padding: 10px 22px;
+	background: var(--p-teal);
+	border-bottom: 4px solid var(--p-sun);
+	color: #fff;
+}
+
+.festa-portal-brand {
+	display: flex;
+	flex-direction: column;
+	text-decoration: none;
+	color: #fff !important;
+	line-height: 1.2;
+}
+
+.festa-portal-brand strong {
+	font-size: 17px;
+}
+
+.festa-portal-brand span {
+	font-size: 12px;
+	opacity: 0.85;
+}
+
+.festa-portal-nav {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	flex: 1 1 auto;
+}
+
+.festa-portal-nav a,
+.festa-portal-user > a {
+	padding: 7px 14px;
+	border-radius: 999px;
+	color: #fff;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.festa-portal-nav a:hover,
+.festa-portal-user > a:hover {
+	background: rgba(255, 255, 255, 0.14);
+	color: #fff;
+}
+
+.festa-portal-nav a.is-current,
+.festa-portal-user > a.is-current {
+	background: #fff;
+	color: var(--p-teal);
+}
+
+.festa-portal-user {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-left: auto;
+}
+
+.festa-portal-user form {
+	margin: 0;
+}
+
+.festa-portal-main {
+	max-width: 1360px;
+	margin: 0 auto;
+	padding: 22px;
+	overflow-x: auto;
+}
+
+.festa-portal-foot {
+	padding: 14px 22px 26px;
+	text-align: center;
+	color: var(--p-muted);
+	font-size: 12px;
+}
+
+/* ---- Títulos de tela ---------------------------------------------------------- */
+
+.festa-portal .wrap {
+	margin: 0;
+}
+
+.festa-portal .wrap > h1 {
+	display: inline-block;
+	margin: 0 10px 10px 0;
+	font-size: 22px;
+	vertical-align: middle;
+}
+
+.festa-portal .wrap h2 {
+	font-size: 16px;
+}
+
+.festa-portal hr.wp-header-end {
+	visibility: hidden;
+	height: 0;
+	margin: 0 0 6px;
+	border: 0;
+}
+
+.festa-portal .page-title-action {
+	display: inline-block;
+	margin: 0 4px 10px 0;
+	padding: 5px 12px;
+	border: 1px solid var(--p-teal);
+	border-radius: 6px;
+	background: #fff;
+	color: var(--p-teal);
+	font-size: 13px;
+	font-weight: 600;
+	text-decoration: none;
+	vertical-align: middle;
+}
+
+.festa-portal .page-title-action:hover {
+	background: var(--p-teal);
+	color: #fff;
+}
+
+.festa-portal .description {
+	color: var(--p-muted);
+	font-size: 13px;
+}
+
+/* ---- Avisos --------------------------------------------------------------------- */
+
+.festa-portal .notice {
+	margin: 10px 0 14px;
+	padding: 2px 14px;
+	border: 1px solid var(--p-line);
+	border-left: 4px solid #2f7fc1;
+	border-radius: 6px;
+	background: #fff;
+}
+
+.festa-portal .notice p {
+	margin: 9px 0;
+}
+
+.festa-portal .notice-success { border-left-color: #2e9e7c; }
+.festa-portal .notice-error { border-left-color: var(--p-red); background: #fdf3f2; }
+.festa-portal .notice-warning { border-left-color: #d9a100; background: #fffbea; }
+.festa-portal .notice-info { border-left-color: #2f7fc1; }
+
+/* ---- Botões ------------------------------------------------------------------------ */
+
+.festa-portal .button {
+	display: inline-block;
+	padding: 6px 14px;
+	border: 1px solid #9fb0b4;
+	border-radius: 6px;
+	background: #fff;
+	color: var(--p-ink);
+	font: inherit;
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 1.5;
+	text-decoration: none;
+	cursor: pointer;
+	white-space: nowrap;
+}
+
+.festa-portal .button:hover {
+	border-color: var(--p-teal);
+	color: var(--p-teal);
+}
+
+.festa-portal .button:focus-visible,
+.festa-portal a:focus-visible,
+.festa-portal input:focus-visible,
+.festa-portal select:focus-visible,
+.festa-portal textarea:focus-visible {
+	outline: 3px solid rgba(11, 93, 107, 0.35);
+	outline-offset: 1px;
+}
+
+.festa-portal .button[disabled] {
+	opacity: 0.45;
+	cursor: default;
+}
+
+.festa-portal .button-primary {
+	border-color: var(--p-teal);
+	background: var(--p-teal);
+	color: #fff;
+}
+
+.festa-portal .button-primary:hover {
+	background: var(--p-teal-2);
+	color: #fff;
+}
+
+.festa-portal .button-small {
+	padding: 2px 9px;
+	font-size: 12px;
+}
+
+.festa-portal .button-large {
+	padding: 9px 20px;
+	font-size: 14px;
+}
+
+.festa-portal .button-link {
+	border: 0;
+	background: none;
+	color: var(--p-teal);
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.festa-portal-top .button {
+	border-color: rgba(255, 255, 255, 0.6);
+	background: transparent;
+	color: #fff;
+}
+
+.festa-portal-top .button:hover {
+	background: #fff;
+	color: var(--p-teal);
+}
+
+.festa-portal .festa-delete {
+	border-color: var(--p-red);
+	color: var(--p-red);
+}
+
+.festa-portal .festa-delete:hover {
+	background: var(--p-red);
+	border-color: var(--p-red);
+	color: #fff;
+}
+
+/* ---- Campos ---------------------------------------------------------------------------- */
+
+.festa-portal input[type='text'],
+.festa-portal input[type='email'],
+.festa-portal input[type='url'],
+.festa-portal input[type='search'],
+.festa-portal input[type='number'],
+.festa-portal input[type='password'],
+.festa-portal input[type='datetime-local'],
+.festa-portal select,
+.festa-portal textarea {
+	max-width: 100%;
+	padding: 6px 10px;
+	border: 1px solid #9fb0b4;
+	border-radius: 6px;
+	background: #fff;
+	color: var(--p-ink);
+	font: inherit;
+}
+
+.festa-portal .regular-text { width: 26em; }
+.festa-portal .large-text,
+.festa-portal .widefat { width: 100%; }
+.festa-portal .small-text { width: 76px; }
+
+.festa-portal .form-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.festa-portal .form-table th {
+	width: 240px;
+	padding: 14px 12px 14px 0;
+	text-align: left;
+	vertical-align: top;
+	font-weight: 600;
+}
+
+.festa-portal .form-table td {
+	padding: 10px 0;
+	vertical-align: top;
+}
+
+.festa-portal .form-table td p {
+	margin: 4px 0 0;
+}
+
+.festa-portal p.submit {
+	margin: 14px 0 0;
+}
+
+.festa-portal fieldset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+
+
+/* ---- Filtros, abas e paginação ------------------------------------------------------------ */
+
+.festa-portal .subsubsub {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0 6px;
+	margin: 12px 0 4px;
+	padding: 0;
+	list-style: none;
+	color: var(--p-muted);
+}
+
+.festa-portal .subsubsub a {
+	text-decoration: none;
+}
+
+.festa-portal .subsubsub a.current {
+	color: var(--p-ink);
+	font-weight: 700;
+}
+
+.festa-portal .subsubsub .count {
+	color: var(--p-muted);
+	font-weight: 400;
+}
+
+.festa-portal .tablenav {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+	margin: 10px 0;
+}
+
+.festa-portal .tablenav .actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 6px;
+}
+
+.festa-portal .search-box {
+	display: flex;
+	gap: 6px;
+	margin: 0 0 0 auto;
+}
+
+.festa-portal .search-box input[type='search'] {
+	width: 260px;
+}
+
+.festa-portal .tablenav-pages {
+	margin-left: auto;
+	color: var(--p-muted);
+}
+
+.festa-portal .page-numbers {
+	display: inline-block;
+	min-width: 30px;
+	padding: 4px 8px;
+	border: 1px solid var(--p-line);
+	border-radius: 6px;
+	background: #fff;
+	text-align: center;
+	text-decoration: none;
+}
+
+.festa-portal .page-numbers.current {
+	border-color: var(--p-teal);
+	background: var(--p-teal);
+	color: #fff;
+}
+
+.festa-portal .nav-tab-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	margin: 18px 0 0;
+	padding: 0;
+	border-bottom: 1px solid var(--p-line);
+}
+
+.festa-portal .nav-tab {
+	padding: 8px 16px;
+	border: 1px solid var(--p-line);
+	border-bottom: 0;
+	border-radius: 8px 8px 0 0;
+	background: #e8eeee;
+	color: var(--p-ink);
+	font-size: 14px;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.festa-portal .nav-tab-active {
+	margin-bottom: -1px;
+	background: var(--p-bg);
+	border-bottom: 1px solid var(--p-bg);
+	color: var(--p-teal);
+}
+
+/* ---- Tabelas --------------------------------------------------------------------------------- */
+
+.festa-portal .wp-list-table {
+	width: 100%;
+	min-width: 1100px;
+	border: 1px solid var(--p-line);
+	border-radius: 10px;
+	border-collapse: separate;
+	border-spacing: 0;
+	background: #fff;
+	overflow: hidden;
+}
+
+.festa-portal .wp-list-table.fixed {
+	table-layout: fixed;
+}
+
+.festa-portal .wp-list-table th,
+.festa-portal .wp-list-table td {
+	padding: 9px 10px;
+	text-align: left;
+	vertical-align: middle;
+	overflow-wrap: anywhere;
+}
+
+.festa-portal .wp-list-table thead th,
+.festa-portal .wp-list-table thead td {
+	border-bottom: 1px solid var(--p-line);
+	background: #eaf1f1;
+	font-weight: 700;
+	font-size: 13px;
+}
+
+.festa-portal .wp-list-table.striped tbody tr:nth-child(odd) > * {
+	background: #f8fafa;
+}
+
+.festa-portal .wp-list-table tbody tr:hover > * {
+	background: #eef6f6;
+}
+
+.festa-portal .wp-list-table .check-column {
+	width: 38px;
+	text-align: center;
+}
+
+.festa-portal .wp-list-table a {
+	text-decoration: none;
+}
+
+.festa-portal .wp-list-table .button {
+	margin: 1px 0;
+}
+
+/* ---- Login --------------------------------------------------------------------------------------- */
+
+.festa-portal--anon {
+	background:
+		radial-gradient(90% 60% at 50% 0%, #ffffff 0%, rgba(255, 255, 255, 0) 60%),
+		var(--p-bg);
+}
+
+.festa-login {
+	display: grid;
+	place-items: center;
+	min-height: 78vh;
+	padding: 24px 12px;
+}
+
+.festa-login-card {
+	position: relative;
+	width: 100%;
+	max-width: 400px;
+	padding: 34px 30px 26px;
+	border: 1px solid var(--p-line);
+	border-radius: 16px;
+	background: #fff;
+	box-shadow: 0 10px 30px rgba(11, 93, 107, 0.12);
+	overflow: hidden;
+}
+
+.festa-login-stripe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 8px;
+	background: linear-gradient(90deg, var(--p-teal) 0 55%, var(--p-sun) 55% 100%);
+}
+
+.festa-login-card h1 {
+	margin: 0;
+	color: var(--p-teal);
+	font-size: 24px;
+}
+
+.festa-login-sub {
+	margin: 2px 0 18px;
+	color: var(--p-muted);
+}
+
+.festa-login-card form p {
+	margin: 0 0 14px;
+}
+
+.festa-login-card label {
+	display: block;
+	margin-bottom: 4px;
+	font-weight: 600;
+}
+
+.festa-login-card input[type='text'],
+.festa-login-card input[type='password'] {
+	width: 100%;
+	padding: 10px 12px;
+	font-size: 16px;
+}
+
+.festa-login-card .button-primary {
+	width: 100%;
+}
+
+.festa-login-hint {
+	margin: 18px 0 0;
+	color: var(--p-muted);
+	font-size: 12.5px;
+}
+
+/* ---- Minha conta / erro ------------------------------------------------------------------------------ */
+
+.festa-portal-grid {
+	display: grid;
+	grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
+	gap: 18px;
+	align-items: start;
+	max-width: 1000px;
+}
+
+.festa-portal-form p {
+	margin: 0 0 12px;
+}
+
+.festa-portal-form label {
+	display: block;
+	margin-bottom: 4px;
+	font-weight: 600;
+}
+
+.festa-portal-form input[type='password'] {
+	width: 100%;
+}
+
+.festa-portal-kv {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.festa-portal-kv th,
+.festa-portal-kv td {
+	padding: 7px 0;
+	border-bottom: 1px solid #eef1f1;
+	text-align: left;
+	vertical-align: top;
+}
+
+.festa-portal-kv th {
+	width: 130px;
+	color: var(--p-muted);
+	font-weight: 600;
+}
+
+.festa-portal-perms {
+	margin: 0;
+	padding-left: 18px;
+}
+
+.festa-portal-h2 {
+	margin: 20px 0 6px;
+}
+
+.festa-portal-error {
+	max-width: 640px;
+	margin: 40px auto;
+}
+
+/* ---- Telas pequenas --------------------------------------------------------------------------------------- */
+
+@media (max-width: 760px) {
+	.festa-portal-top {
+		padding: 10px 14px;
+	}
+
+	.festa-portal-main {
+		padding: 14px;
+	}
+
+	.festa-portal-grid {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.festa-portal .search-box {
+		margin-left: 0;
+		width: 100%;
+	}
+
+	.festa-portal .search-box input[type='search'] {
+		flex: 1 1 auto;
+		width: auto;
+	}
+
+	.festa-portal .form-table th,
+	.festa-portal .form-table td {
+		display: block;
+		width: auto;
+		padding: 6px 0;
+	}
+
+	.festa-portal .regular-text {
+		width: 100%;
+	}
+}
+
+/* ---- Telas da Festa dos Amigos dentro do portal --------------------------------------------------------- */
+
+.festa-portal .widefat {
+	width: 100%;
+}
+
+.festa-portal table.widefat {
+	border: 1px solid var(--p-line);
+	border-radius: 10px;
+	border-collapse: separate;
+	border-spacing: 0;
+	background: #fff;
+	overflow: hidden;
+}
+
+.festa-portal table.widefat th,
+.festa-portal table.widefat td {
+	padding: 9px 12px;
+	text-align: left;
+	vertical-align: middle;
+}
+
+.festa-portal table.widefat.striped tbody tr:nth-child(odd) > * {
+	background: #f8fafa;
+}
+
+.festa-portal .notice.inline {
+	max-width: 640px;
+}
+
+.festa-portal .festa-stack input[type='text'],
+.festa-portal .festa-stack input[type='email'] {
+	width: 100%;
+}

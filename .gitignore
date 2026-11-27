@@ -1,0 +1,13 @@
+# Configurações locais (portas, senhas)
+.env
+
+# Python dos testes
+tests/.venv/
+__pycache__/
+*.pyc
+
+# Gerados na máquina de cada um: backups (dados pessoais e chaves), e os
+# cadastros de teste do tests/popular_banco.py (senhas e PDFs)
+backups/
+cadastros-teste.md
+pdfs-teste/

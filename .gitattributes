@@ -1,0 +1,3 @@
+# Tudo roda no Linux do container: LF em todos os arquivos de texto, até num
+# clone feito no Windows (onde o Git costuma converter para CRLF).
+* text=auto eol=lf

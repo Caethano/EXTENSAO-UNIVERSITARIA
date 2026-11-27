@@ -1,0 +1,1357 @@
+/* =========================================================================
+   Festa dos Amigos 2026 — páginas do participante
+   (pré-cadastro, login, finalização da inscrição e painel)
+   Clima de festa ao ar livre: fundo creme · amarelo · verde-petróleo ·
+   laranja-coral · cartões brancos arredondados.
+   Só recursos do próprio site: nenhuma fonte ou imagem externa.
+   Paleta: petróleo #0B5D6B · petróleo escuro #084852 · sol #FFC233 ·
+           coral #F2703A · creme #FFF7E8 · grafite #23323A · branco #FFFFFF
+   ========================================================================= */
+
+.festa-wrap {
+	--festa-teal: #0b5d6b;
+	--festa-teal-2: #084852;
+	--festa-sun: #ffc233;
+	--festa-orange: #f2703a;
+	--festa-orange-2: #d85a26;
+	--festa-cream: #fff7e8;
+	--festa-mint: #eaf5f3;
+	--festa-ink: #23323a;
+	--festa-muted: #5d6b73;
+	--festa-line: #d9e2e4;
+	--festa-error: #c0392b;
+	--festa-white: #ffffff;
+	--festa-radius: 18px;
+
+	box-sizing: border-box;
+	max-width: 780px;
+	margin: 0 auto;
+	padding: 36px 20px 48px;
+	background:
+		radial-gradient(110% 55% at 50% 0%, #fffdf7 0%, rgba(255, 253, 247, 0) 60%),
+		var(--festa-cream);
+	border-radius: calc(var(--festa-radius) + 8px);
+	font-family: ui-rounded, 'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+	font-size: 16.5px;
+	font-weight: 400;
+	line-height: 1.55;
+	color: var(--festa-ink);
+}
+
+.festa-wrap strong,
+.festa-wrap b {
+	font-weight: 700;
+}
+
+.festa-wrap *,
+.festa-wrap *::before,
+.festa-wrap *::after {
+	box-sizing: inherit;
+}
+
+.festa-wrap [hidden] {
+	display: none !important;
+}
+
+/* ---- Cabeçalho ------------------------------------------------------------ */
+
+.festa-header {
+	text-align: center;
+	padding: 0 8px 24px;
+}
+
+/* Bandeirinhas: o fio usa a cor do texto; cada bandeira, uma cor da paleta. */
+.festa-bunting {
+	display: block;
+	width: min(300px, 78%);
+	height: auto;
+	margin: 0 auto 10px;
+	color: var(--festa-teal);
+}
+
+.festa-bunting .f1 { fill: var(--festa-sun); }
+.festa-bunting .f2 { fill: var(--festa-orange); }
+.festa-bunting .f3 { fill: var(--festa-teal); }
+
+.festa-eyebrow {
+	margin: 0 0 2px;
+	font-weight: 800;
+	font-size: 14px;
+	letter-spacing: 4px;
+	text-transform: uppercase;
+	color: var(--festa-teal);
+}
+
+.festa-display {
+	margin: 0;
+	font-family: ui-rounded, 'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+	font-weight: 800;
+	font-size: clamp(38px, 9.5vw, 68px);
+	line-height: 1.02;
+	letter-spacing: -0.5px;
+	color: var(--festa-teal);
+}
+
+.festa-script {
+	margin: 0;
+	font-weight: 800;
+	font-family: ui-rounded, 'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+	font-size: clamp(30px, 7.5vw, 50px);
+	line-height: 1.15;
+	letter-spacing: 3px;
+	color: var(--festa-orange);
+}
+
+/* ---- Cartão de apresentação ------------------------------------------------ */
+
+.festa-card--intro {
+	position: relative;
+	text-align: center;
+	padding-top: 34px;
+}
+
+.festa-intro-stripe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 10px;
+	background: linear-gradient(90deg, var(--festa-teal) 0 40%, var(--festa-sun) 40% 70%, var(--festa-orange) 70% 100%);
+}
+
+.festa-title {
+	margin: 0 0 4px;
+	font-family: ui-rounded, 'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+	font-weight: 800;
+	font-size: 30px;
+	line-height: 1.2;
+	color: var(--festa-teal);
+}
+
+.festa-subtitle {
+	margin: 0 0 18px;
+	font-weight: 800;
+	font-size: 14px;
+	letter-spacing: 0.8px;
+	color: var(--festa-orange-2);
+}
+
+.festa-intro {
+	max-width: 620px;
+	margin: 0 auto 12px;
+	color: #3d4a52;
+}
+
+.festa-steps {
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 8px 18px;
+	margin: 18px auto 6px;
+	padding: 14px 16px;
+	max-width: 620px;
+	background: var(--festa-mint);
+	border-radius: 14px;
+	font-weight: 700;
+	font-size: 14.5px;
+	color: var(--festa-teal);
+}
+
+.festa-steps li {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.festa-steps span {
+	display: inline-grid;
+	place-content: center;
+	width: 26px;
+	height: 26px;
+	border-radius: 50%;
+	background: var(--festa-teal);
+	color: var(--festa-white);
+	font-size: 13px;
+}
+
+.festa-edital {
+	display: inline-block;
+	margin-top: 10px;
+	padding: 9px 22px;
+	border: 2px solid var(--festa-teal);
+	border-radius: 999px;
+	color: var(--festa-teal);
+	font-weight: 800;
+	text-decoration: none;
+}
+
+.festa-edital:hover {
+	background: var(--festa-teal);
+	color: var(--festa-white);
+}
+
+.festa-art {
+	margin: 20px auto 4px;
+	max-width: 420px;
+}
+
+.festa-art img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 14px;
+	box-shadow: 0 8px 24px rgba(11, 93, 107, 0.18);
+}
+
+.festa-required-note {
+	margin: 20px auto 0;
+	padding-top: 14px;
+	border-top: 1px solid #eee4d2;
+	font-size: 14px;
+	color: var(--festa-orange-2);
+}
+
+.festa-req {
+	color: var(--festa-orange-2);
+	font-weight: 800;
+	margin-left: 2px;
+}
+
+/* ---- Cartões ----------------------------------------------------------------- */
+
+.festa-card {
+	background: var(--festa-white);
+	border-radius: var(--festa-radius);
+	padding: 24px 28px;
+	margin: 0 0 16px;
+	box-shadow: 0 6px 22px rgba(11, 93, 107, 0.1);
+	overflow: hidden;
+}
+
+.festa-card.festa-reveal {
+	animation: festa-in 0.35s ease-out;
+}
+
+@keyframes festa-in {
+	from { opacity: 0; transform: translateY(8px); }
+	to { opacity: 1; transform: none; }
+}
+
+.festa-section-bar {
+	margin: -24px -28px 16px;
+	padding: 13px 28px;
+	background: var(--festa-teal);
+	color: var(--festa-white);
+	font-weight: 800;
+	font-size: 15px;
+	letter-spacing: 0.6px;
+	text-transform: uppercase;
+	border-bottom: 4px solid var(--festa-sun);
+}
+
+.festa-section-desc {
+	margin: 0 0 18px;
+	color: var(--festa-muted);
+	font-size: 15px;
+}
+
+.festa-cond-hint {
+	margin: 4px 0 0;
+	padding: 12px 16px;
+	border-radius: 12px;
+	background: #fff4d6;
+	color: #7a5a00;
+	font-size: 15px;
+}
+
+.festa-sub {
+	margin: -8px 0 22px;
+	padding: 18px 18px 2px;
+	background: var(--festa-mint);
+	border-left: 4px solid var(--festa-orange);
+	border-radius: 12px;
+}
+
+/* ---- Campos --------------------------------------------------------------------- */
+
+.festa-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0 18px;
+}
+
+.festa-field {
+	margin: 0 0 22px;
+}
+
+.festa-label {
+	display: block;
+	font-weight: 700;
+	margin: 0 0 6px;
+	color: var(--festa-ink);
+}
+
+.festa-help {
+	margin: -2px 0 8px;
+	font-size: 14px;
+	color: #7a878e;
+}
+
+.festa-input {
+	display: block;
+	width: 100%;
+	padding: 11px 14px;
+	font: inherit;
+	color: var(--festa-ink);
+	background: #fbfcfc;
+	border: 1.5px solid var(--festa-line);
+	border-radius: 12px;
+	transition: border-color 0.15s ease, box-shadow 0.15s ease;
+	appearance: none;
+}
+
+.festa-input:focus {
+	outline: none;
+	border-color: var(--festa-teal);
+	box-shadow: 0 0 0 3px rgba(11, 93, 107, 0.18);
+	background: var(--festa-white);
+}
+
+textarea.festa-input {
+	resize: vertical;
+	min-height: 96px;
+}
+
+.festa-field.festa-invalid .festa-input {
+	border-color: var(--festa-error);
+	box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.14);
+	background-color: #fdf5f4;
+}
+
+.festa-field.festa-valid .festa-input {
+	border-color: #2e9e7c;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='none' stroke='%232e9e7c' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round' d='M4 10.5l4 4 8-9'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right 12px center;
+	background-size: 18px 18px;
+	padding-right: 40px;
+}
+
+.festa-field.festa-valid textarea.festa-input {
+	background-position: right 12px top 12px;
+}
+
+.festa-error,
+.festa-form-error {
+	margin: 6px 0 0;
+	font-size: 14px;
+	font-weight: 600;
+	color: var(--festa-error);
+}
+
+.festa-form-error {
+	text-align: center;
+	font-weight: 800;
+}
+
+.festa-form-error--static {
+	margin: 0 0 16px;
+	padding: 12px 16px;
+	background: #fdecea;
+	border-radius: 12px;
+}
+
+/* ---- Escolhas (rádio em forma de botão) --------------------------------------------- */
+
+.festa-choices {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.festa-choice {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 10px 18px 10px 14px;
+	border: 1.5px solid var(--festa-line);
+	border-radius: 999px;
+	background: #fbfcfc;
+	cursor: pointer;
+	font-weight: 700;
+	transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.festa-choices--big .festa-choice {
+	flex: 1 1 200px;
+	padding: 16px 20px;
+	border-radius: 16px;
+	font-size: 17px;
+}
+
+.festa-choice:hover {
+	border-color: var(--festa-teal);
+}
+
+.festa-choice input[type='radio'] {
+	appearance: none;
+	width: 20px;
+	height: 20px;
+	margin: 0;
+	border: 2px solid #9aa9b0;
+	border-radius: 50%;
+	display: inline-grid;
+	place-content: center;
+	background: var(--festa-white);
+	flex: 0 0 auto;
+	cursor: pointer;
+}
+
+.festa-choice input[type='radio']::before {
+	content: '';
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	transform: scale(0);
+	transition: transform 0.12s ease-in-out;
+	background: var(--festa-white);
+}
+
+.festa-choice input[type='radio']:checked {
+	border-color: var(--festa-white);
+	background: var(--festa-orange);
+	box-shadow: 0 0 0 2px var(--festa-orange);
+}
+
+.festa-choice input[type='radio']:checked::before {
+	transform: scale(1);
+}
+
+.festa-choice:has(input:checked) {
+	border-color: var(--festa-orange);
+	background: #fff3ec;
+	color: var(--festa-orange-2);
+}
+
+.festa-choice input[type='radio']:focus-visible {
+	outline: 3px solid rgba(11, 93, 107, 0.35);
+	outline-offset: 2px;
+}
+
+.festa-field.festa-invalid .festa-choice {
+	border-color: var(--festa-error);
+}
+
+/* ---- Documentos (upload) ------------------------------------------------------------- */
+
+.festa-drop {
+	position: relative;
+	border: 2px dashed #b9cacd;
+	border-radius: 14px;
+	background: #fbfdfd;
+	transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.festa-drop:hover,
+.festa-drop.is-drag {
+	border-color: var(--festa-teal);
+	background: var(--festa-mint);
+}
+
+.festa-drop:focus-within {
+	border-color: var(--festa-teal);
+	box-shadow: 0 0 0 3px rgba(11, 93, 107, 0.18);
+}
+
+/* O input cobre toda a área: clicar ou arrastar um arquivo funciona em qualquer ponto. */
+.festa-file-input {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	cursor: pointer;
+	z-index: 1;
+}
+
+.festa-drop-empty {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2px;
+	padding: 18px 14px;
+	text-align: center;
+}
+
+.festa-drop-icon {
+	color: var(--festa-teal);
+}
+
+.festa-drop-text strong {
+	color: var(--festa-teal);
+}
+
+.festa-drop-or {
+	color: var(--festa-muted);
+}
+
+.festa-drop-hint {
+	font-size: 13px;
+	color: #7a878e;
+}
+
+.festa-drop-filled {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 10px 12px;
+}
+
+.festa-file-thumb {
+	width: 56px;
+	height: 56px;
+	object-fit: cover;
+	border-radius: 10px;
+	flex: 0 0 auto;
+	background: #eee;
+}
+
+.festa-file-pdf {
+	display: grid;
+	place-content: center;
+	width: 56px;
+	height: 56px;
+	flex: 0 0 auto;
+	border-radius: 10px;
+	background: #fdecea;
+	color: var(--festa-error);
+	font-weight: 800;
+	font-size: 14px;
+}
+
+.festa-file-meta {
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	flex: 1 1 auto;
+}
+
+.festa-file-name {
+	font-weight: 700;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.festa-file-size {
+	font-size: 13px;
+	color: var(--festa-muted);
+}
+
+.festa-file-remove {
+	position: relative;
+	z-index: 2;
+	flex: 0 0 auto;
+	border: 1.5px solid var(--festa-line);
+	background: var(--festa-white);
+	color: var(--festa-ink);
+	font: inherit;
+	font-size: 14px;
+	font-weight: 700;
+	padding: 6px 14px;
+	border-radius: 999px;
+	cursor: pointer;
+}
+
+.festa-file-remove:hover {
+	border-color: var(--festa-error);
+	color: var(--festa-error);
+}
+
+.festa-field.festa-valid .festa-drop {
+	border-style: solid;
+	border-color: #2e9e7c;
+	background: #f2fbf7;
+}
+
+.festa-field.festa-invalid .festa-drop {
+	border-color: var(--festa-error);
+	background: #fdf5f4;
+}
+
+/* ---- Honeypot --------------------------------------------------------------------------- */
+
+.festa-hp {
+	position: absolute !important;
+	left: -9999px !important;
+	width: 1px;
+	height: 1px;
+	opacity: 0;
+}
+
+/* ---- Botões ------------------------------------------------------------------------------ */
+
+.festa-actions {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	margin-top: 8px;
+}
+
+.festa-submit {
+	font-family: inherit;
+	font-weight: 800;
+	font-size: 16px;
+	letter-spacing: 0.8px;
+	text-transform: uppercase;
+	color: var(--festa-white);
+	background: var(--festa-orange);
+	border: 0;
+	border-radius: 999px;
+	padding: 15px 38px;
+	cursor: pointer;
+	transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+	box-shadow: 0 6px 16px rgba(242, 112, 58, 0.35);
+}
+
+.festa-submit:hover {
+	background: var(--festa-orange-2);
+}
+
+.festa-submit:active {
+	transform: translateY(1px);
+}
+
+.festa-submit[disabled] {
+	opacity: 0.75;
+	cursor: wait;
+}
+
+.festa-clear {
+	margin-left: auto;
+	border: 0;
+	background: none;
+	color: var(--festa-teal);
+	font: inherit;
+	font-weight: 700;
+	cursor: pointer;
+	padding: 8px 12px;
+	border-radius: 8px;
+}
+
+.festa-clear:hover {
+	background: rgba(11, 93, 107, 0.08);
+}
+
+/* ---- Sucesso e encerramento ------------------------------------------------------------- */
+
+.festa-success,
+.festa-closed {
+	background: var(--festa-white);
+	border-radius: var(--festa-radius);
+	padding: 44px 28px;
+	text-align: center;
+	box-shadow: 0 6px 22px rgba(11, 93, 107, 0.12);
+}
+
+.festa-success-icon,
+.festa-closed-icon {
+	width: 64px;
+	height: 64px;
+	margin: 0 auto 16px;
+	display: grid;
+	place-content: center;
+	font-size: 30px;
+	color: var(--festa-white);
+	background: #2e9e7c;
+	border-radius: 50%;
+}
+
+.festa-closed-icon {
+	background: var(--festa-sun);
+}
+
+.festa-success h3,
+.festa-closed h3 {
+	margin: 0 0 8px;
+	font-family: ui-rounded, 'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+	font-weight: 800;
+	font-size: 28px;
+	color: var(--festa-teal);
+}
+
+.festa-success-lead {
+	margin: 0;
+	color: var(--festa-muted);
+}
+
+.festa-success-num {
+	display: inline-block;
+	margin: 8px 0 6px;
+	padding: 8px 28px;
+	border: 3px dashed var(--festa-sun);
+	border-radius: 16px;
+	background: #fffbef;
+	font-family: ui-rounded, 'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+	font-weight: 800;
+	font-size: clamp(40px, 11vw, 60px);
+	line-height: 1.1;
+	color: var(--festa-orange-2);
+	letter-spacing: 1px;
+}
+
+.festa-success-when {
+	margin: 0 0 12px;
+	font-size: 14px;
+	color: var(--festa-muted);
+}
+
+.festa-success-tip,
+.festa-closed p {
+	margin: 12px auto 22px;
+	max-width: 520px;
+	color: #45535b;
+}
+
+.festa-again {
+	border: 2px solid var(--festa-teal);
+	background: none;
+	color: var(--festa-teal);
+	font: inherit;
+	font-weight: 800;
+	padding: 10px 26px;
+	border-radius: 999px;
+	cursor: pointer;
+}
+
+.festa-again:hover {
+	background: var(--festa-teal);
+	color: var(--festa-white);
+}
+
+.festa-footer-note {
+	margin: 28px 0 0;
+	text-align: center;
+	font-weight: 800;
+	font-size: 11px;
+	letter-spacing: 2.5px;
+	color: var(--festa-teal);
+	opacity: 0.6;
+}
+
+/* =========================================================================
+   Página inteira (template do plugin)
+   ========================================================================= */
+
+body.festa-fullpage {
+	margin: 0;
+	min-height: 100vh;
+	background:
+		radial-gradient(90% 45% at 50% 0%, #fffdf7 0%, rgba(255, 253, 247, 0) 55%),
+		#fff7e8;
+}
+
+.festa-fullpage-bg {
+	position: fixed;
+	inset: 0;
+	overflow: hidden;
+	pointer-events: none;
+	z-index: 0;
+}
+
+.festa-bg-glow {
+	position: absolute;
+	border-radius: 50%;
+}
+
+.festa-bg-glow--1 {
+	width: 60vmin;
+	height: 60vmin;
+	top: -24vmin;
+	right: -16vmin;
+	background: radial-gradient(circle, rgba(255, 194, 51, 0.28) 0%, rgba(255, 194, 51, 0) 70%);
+}
+
+.festa-bg-glow--2 {
+	width: 80vmin;
+	height: 80vmin;
+	bottom: -38vmin;
+	left: -26vmin;
+	background: radial-gradient(circle, rgba(11, 93, 107, 0.1) 0%, rgba(11, 93, 107, 0) 70%);
+}
+
+.festa-bg-glow--3 {
+	width: 30vmin;
+	height: 30vmin;
+	top: 42vh;
+	right: 6vw;
+	background: radial-gradient(circle, rgba(242, 112, 58, 0.12) 0%, rgba(242, 112, 58, 0) 70%);
+}
+
+.festa-fullpage-main {
+	position: relative;
+	z-index: 1;
+	min-height: 100vh;
+	padding: 28px 20px 56px;
+}
+
+.festa-back-home {
+	display: block;
+	max-width: 780px;
+	margin: 0 auto 6px;
+	font-family: ui-rounded, 'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+	font-weight: 700;
+	font-size: 13px;
+	text-decoration: none;
+	color: #0b5d6b;
+	opacity: 0.8;
+}
+
+.festa-back-home:hover {
+	opacity: 1;
+	color: #f2703a;
+}
+
+body.festa-fullpage .festa-wrap {
+	background: transparent;
+	padding: 0 0 24px;
+	border-radius: 0;
+}
+
+/* ---- Responsivo ------------------------------------------------------------------------ */
+
+@media (max-width: 560px) {
+	.festa-wrap {
+		padding: 24px 12px 36px;
+		border-radius: 0;
+	}
+
+	.festa-card {
+		padding: 18px;
+	}
+
+	.festa-section-bar {
+		margin: -18px -18px 14px;
+		padding: 12px 18px;
+	}
+
+	.festa-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.festa-title {
+		font-size: 24px;
+	}
+
+	.festa-eyebrow {
+		font-size: 12px;
+		letter-spacing: 2.5px;
+	}
+
+	.festa-sub {
+		padding: 14px 12px 2px;
+	}
+
+	.festa-actions {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.festa-clear {
+		margin-left: 0;
+	}
+
+	.festa-fullpage-main {
+		padding: 16px 12px 44px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.festa-wrap * {
+		animation: none !important;
+		transition: none !important;
+	}
+}
+
+/* ---- Aceite (edital + LGPD) --------------------------------------------------------------- */
+
+.festa-check {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	padding: 14px 16px;
+	border: 1.5px solid var(--festa-line);
+	border-radius: 14px;
+	background: #fbfcfc;
+	cursor: pointer;
+	font-size: 15.5px;
+}
+
+.festa-check:has(input:checked) {
+	border-color: #2e9e7c;
+	background: #f2fbf7;
+}
+
+.festa-check input[type='checkbox'] {
+	appearance: none;
+	flex: 0 0 auto;
+	width: 24px;
+	height: 24px;
+	margin: 1px 0 0;
+	border: 2px solid #9aa9b0;
+	border-radius: 7px;
+	background: var(--festa-white);
+	cursor: pointer;
+	display: inline-grid;
+	place-content: center;
+}
+
+.festa-check input[type='checkbox']::before {
+	content: '';
+	width: 14px;
+	height: 14px;
+	transform: scale(0);
+	transition: transform 0.12s ease-in-out;
+	background: var(--festa-white);
+	clip-path: polygon(14% 52%, 0 66%, 38% 100%, 100% 22%, 86% 8%, 37% 70%);
+}
+
+.festa-check input[type='checkbox']:checked {
+	border-color: #2e9e7c;
+	background: #2e9e7c;
+}
+
+.festa-check input[type='checkbox']:checked::before {
+	transform: scale(1);
+}
+
+.festa-check input[type='checkbox']:focus-visible {
+	outline: 3px solid rgba(11, 93, 107, 0.35);
+	outline-offset: 2px;
+}
+
+.festa-field.festa-invalid .festa-check {
+	border-color: var(--festa-error);
+	background: #fdf5f4;
+}
+
+.festa-check-links {
+	margin: 10px 0 0;
+	font-size: 14px;
+}
+
+.festa-check-links a {
+	color: var(--festa-teal);
+	font-weight: 700;
+}
+
+/* =========================================================================
+   Componentes próprios da Festa dos Amigos
+   ========================================================================= */
+
+/* ---- Avisos ------------------------------------------------------------------ */
+
+.festa-notice {
+	margin: 0 0 16px;
+	padding: 12px 16px;
+	border-radius: 12px;
+	background: var(--festa-mint);
+	color: var(--festa-teal-2);
+	font-size: 15px;
+}
+
+.festa-notice--success {
+	background: #e3f5ee;
+	color: #1d6b53;
+	font-weight: 700;
+}
+
+.festa-notice--warning {
+	background: #fff4d6;
+	color: #7a5a00;
+}
+
+.festa-info-box {
+	margin: 14px 0 0;
+	padding: 14px 16px;
+	border-radius: 12px;
+	background: var(--festa-mint);
+	border-left: 4px solid var(--festa-teal);
+	font-size: 15px;
+	color: #3d4a52;
+}
+
+.festa-text {
+	margin: 0 0 12px;
+	color: #3d4a52;
+}
+
+.festa-login-hint {
+	margin: 18px 0 0;
+	padding-top: 14px;
+	border-top: 1px solid #eee4d2;
+	text-align: center;
+	font-size: 14.5px;
+	color: var(--festa-muted);
+}
+
+.festa-wrap a:not(.festa-btn):not(.festa-edital) {
+	color: var(--festa-teal);
+	font-weight: 700;
+}
+
+/* ---- Botões em forma de link -------------------------------------------------- */
+
+.festa-btn {
+	display: inline-block;
+	font-family: inherit;
+	font-weight: 800;
+	font-size: 15px;
+	letter-spacing: 0.4px;
+	color: var(--festa-white);
+	background: var(--festa-teal);
+	border: 0;
+	border-radius: 999px;
+	padding: 12px 28px;
+	cursor: pointer;
+	text-decoration: none;
+	transition: background 0.2s ease;
+}
+
+.festa-btn:hover {
+	background: var(--festa-teal-2);
+	color: var(--festa-white);
+}
+
+.festa-btn--ghost {
+	background: none;
+	border: 2px solid var(--festa-teal);
+	color: var(--festa-teal);
+	padding: 8px 20px;
+	font-size: 14px;
+}
+
+.festa-btn--ghost:hover {
+	background: var(--festa-teal);
+	color: var(--festa-white);
+}
+
+.festa-actions--center {
+	justify-content: center;
+}
+
+/* ---- Senha de acesso (mostrada uma única vez) ---------------------------------- */
+
+.festa-senha-box {
+	margin: 14px auto 8px;
+	max-width: 440px;
+	padding: 16px 18px;
+	border: 3px dashed var(--festa-sun);
+	border-radius: 16px;
+	background: #fffbef;
+}
+
+.festa-senha-label {
+	margin: 0 0 4px;
+	font-size: 13px;
+	font-weight: 800;
+	letter-spacing: 1.5px;
+	text-transform: uppercase;
+	color: var(--festa-muted);
+}
+
+.festa-senha {
+	display: block;
+	margin: 0 0 10px;
+	font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+	font-weight: 800;
+	font-size: clamp(22px, 6.4vw, 30px);
+	letter-spacing: 1.5px;
+	color: var(--festa-orange-2);
+	user-select: all;
+	word-break: break-all;
+}
+
+/* ---- Painel do participante ------------------------------------------------------ */
+
+.festa-painel-head {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px 16px;
+	margin: 0 0 16px;
+}
+
+.festa-painel-head h2 {
+	margin: 0;
+	font-weight: 800;
+	font-size: 24px;
+	line-height: 1.2;
+	color: var(--festa-teal);
+}
+
+.festa-painel-meta {
+	margin: 2px 0 0;
+	font-size: 14.5px;
+	color: var(--festa-muted);
+}
+
+.festa-painel-tools {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.festa-painel-tools form {
+	margin: 0;
+}
+
+.festa-badge {
+	display: inline-block;
+	padding: 5px 14px;
+	border-radius: 999px;
+	font-size: 13px;
+	font-weight: 800;
+	white-space: nowrap;
+}
+
+.festa-badge--rascunho { background: #eef1f2; color: #50575e; }
+.festa-badge--aguardando_analise { background: #fff4d0; color: #7a5a00; }
+.festa-badge--deferido { background: #ddebf7; color: #1c5d8f; }
+.festa-badge--aguardando_comprovantes { background: #ece6f8; color: #56399e; }
+.festa-badge--concluido { background: #dcf3e9; color: #1d6b53; }
+
+/* Etapas: feitas, atual e seguintes. */
+.festa-stepper {
+	list-style: none;
+	display: grid;
+	grid-template-columns: repeat(5, minmax(0, 1fr));
+	gap: 6px;
+	margin: 0 0 20px;
+	padding: 0;
+	counter-reset: festa-step;
+}
+
+.festa-stepper li {
+	counter-increment: festa-step;
+	position: relative;
+	padding: 34px 4px 0;
+	text-align: center;
+	font-size: 12.5px;
+	font-weight: 700;
+	line-height: 1.25;
+	color: #7a878e;
+}
+
+.festa-stepper li::before {
+	content: counter(festa-step);
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	display: grid;
+	place-content: center;
+	width: 28px;
+	height: 28px;
+	border-radius: 50%;
+	background: #e3e9ea;
+	color: #5d6b73;
+	font-size: 13px;
+	font-weight: 800;
+}
+
+.festa-stepper li.is-done { color: #1d6b53; }
+.festa-stepper li.is-done::before { content: ✓; background: #2e9e7c; color: #fff; }
+.festa-stepper li.is-current { color: var(--festa-orange-2); }
+.festa-stepper li.is-current::before { background: var(--festa-orange); color: #fff; box-shadow: 0 0 0 4px #fde6d8; }
+
+.festa-step-title {
+	margin: 0 0 8px;
+	font-weight: 800;
+	font-size: 20px;
+	line-height: 1.25;
+	color: var(--festa-teal);
+}
+
+.festa-sub-block {
+	margin: 18px 0 0;
+	padding: 18px 0 0;
+	border-top: 1px solid #eee4d2;
+}
+
+.festa-sub-block h4 {
+	margin: 0 0 8px;
+	font-size: 16px;
+	font-weight: 800;
+	color: var(--festa-ink);
+}
+
+.festa-tenda-destaque {
+	margin: 14px 0 6px;
+	padding: 16px;
+	border: 3px dashed var(--festa-sun);
+	border-radius: 16px;
+	background: #fffbef;
+	text-align: center;
+	font-size: 13px;
+	font-weight: 800;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: var(--festa-muted);
+}
+
+.festa-tenda-destaque span {
+	display: block;
+	margin-top: 2px;
+	font-size: clamp(34px, 10vw, 52px);
+	line-height: 1.1;
+	letter-spacing: 1px;
+	color: var(--festa-orange-2);
+}
+
+.festa-doc-link {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin: 10px 0 0;
+	padding: 12px 14px;
+	border: 1.5px solid var(--festa-line);
+	border-radius: 14px;
+	background: #fbfcfc;
+	text-decoration: none;
+}
+
+.festa-doc-link:hover {
+	border-color: var(--festa-teal);
+	background: var(--festa-mint);
+}
+
+.festa-doc-link .festa-doc-ico {
+	display: grid;
+	place-content: center;
+	flex: 0 0 auto;
+	width: 44px;
+	height: 44px;
+	border-radius: 10px;
+	background: var(--festa-teal);
+	color: var(--festa-white);
+	font-size: 20px;
+}
+
+.festa-doc-link small {
+	display: block;
+	font-weight: 400;
+	color: var(--festa-muted);
+}
+
+.festa-details {
+	margin: 0 0 16px;
+	padding: 14px 20px;
+	border-radius: var(--festa-radius);
+	background: var(--festa-white);
+	box-shadow: 0 6px 22px rgba(11, 93, 107, 0.1);
+}
+
+.festa-details summary {
+	cursor: pointer;
+	font-weight: 800;
+	color: var(--festa-teal);
+}
+
+.festa-details[open] summary {
+	margin-bottom: 16px;
+}
+
+@media (max-width: 560px) {
+	.festa-stepper li {
+		font-size: 10.5px;
+	}
+
+	.festa-painel-head h2 {
+		font-size: 21px;
+	}
+
+	.festa-details {
+		padding: 12px 16px;
+	}
+}
+
+/* Blocos recolhíveis e ferramentas dentro de um cartão. */
+.festa-card .festa-details {
+	margin: 12px 0 0;
+	background: var(--festa-mint);
+	box-shadow: none;
+}
+
+.festa-painel-tools .festa-actions {
+	margin: 0;
+}
+
+.festa-step-block .festa-form {
+	margin-top: 14px;
+}
+
+/* ---- Lista de espera e indeferimento (painel do participante) ------------- */
+
+.festa-badge--lista_espera { background: #fde9dc; color: #8a3a12; }
+.festa-badge--indeferido { background: #fbe4e2; color: #9b2c22; }
+
+.festa-stepper.is-rejected li:not(.is-done):not(.is-current) { opacity: 0.45; }
+.festa-stepper li.is-rejected { color: var(--festa-error); }
+.festa-stepper li.is-rejected::before { content: '\2715'; background: var(--festa-error); color: #fff; box-shadow: 0 0 0 4px #f7d7d3; }
+
+.festa-fila-destaque {
+	margin: 14px 0 12px;
+	padding: 16px;
+	border: 3px dashed var(--festa-orange);
+	border-radius: 16px;
+	background: #fff4ec;
+	text-align: center;
+	font-size: 13px;
+	font-weight: 800;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: var(--festa-muted);
+}
+
+.festa-fila-destaque span {
+	display: block;
+	margin-top: 2px;
+	font-size: clamp(34px, 10vw, 52px);
+	line-height: 1.1;
+	letter-spacing: 1px;
+	color: var(--festa-orange-2);
+}
+
+.festa-indeferido-box {
+	margin: 14px 0 0;
+	padding: 14px 16px;
+	border-radius: 12px;
+	background: #fdf0ee;
+	border-left: 4px solid var(--festa-error);
+	color: #3d4a52;
+}
+
+.festa-indeferido-box strong {
+	display: block;
+	margin-bottom: 4px;
+	font-size: 13px;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: #9b2c22;
+}
+
+.festa-indeferido-box p {
+	margin: 0;
+	font-size: 15px;
+	white-space: normal;
+	overflow-wrap: anywhere;
+}
+
+.festa-notice--fila {
+	border-left: 4px solid var(--festa-orange);
+	background: #fff4ec;
+}

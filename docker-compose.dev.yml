@@ -1,0 +1,12 @@
+# Desenvolvimento do plugin: a pasta ./plugin entra direto no container (cada
+# alteração vale no próximo recarregar da página, sem rebuild) e os avisos do
+# PHP aparecem em "docker compose logs -f wordpress".
+#
+#   docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build
+
+services:
+  wordpress:
+    environment:
+      WORDPRESS_DEBUG: "1"
+    volumes:
+      - ./plugin:/var/www/html/wp-content/plugins/festa-amigos-2026
